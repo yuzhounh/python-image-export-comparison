@@ -1,17 +1,27 @@
 # Python Image Export Comparison
 
+Compare image-export code paths, output formats, and resolution handling for a sample Matplotlib figure.
+
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-D4AF37?style=flat-square)](LICENSE)
+
 This project compares different methods and libraries for exporting images in various formats and resolutions in Python.
 
 ## Description
 
 This script demonstrates how to save images using different Python libraries:
-1. Pillow (PIL)
+1. Matplotlib export followed by Pillow-based DPI inspection (the function is named `save_with_pillow`)
 2. OpenCV (cv2)
 3. Matplotlib
 4. scikit-image
 5. imageio v3
 
 It creates a sample sine wave plot and saves it in multiple formats using each method, allowing for a comparison of the output quality, file size, and supported formats.
+
+## Prerequisites and Execution
+
+Run from the repository directory. The function named `save_with_pillow` actually calls Matplotlib's `Figure.savefig`, then uses Pillow to inspect DPI metadata; it is not an independent Pillow encoder comparison.
+
+The configured format lists describe attempted exports. Backend support can vary, and an export exception may stop the run before later methods execute.
 
 ## Getting Started
 
@@ -50,13 +60,19 @@ The script will create a `saved_images` directory with subdirectories for each m
 
 Each subdirectory will contain the sample image saved in various formats supported by that method.
 
-### Supported Formats
+### Formats Attempted by the Current Source
 
-- **Pillow**: eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff, webp
-- **OpenCV**: jpeg, jpg, png, tif, tiff, webp, bmp, ppm, pbm, pgm
+- **`save_with_pillow` (Matplotlib export)**: eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff, webp
+- **OpenCV**: jpeg, jpg, png, tif, tiff, webp, bmp, ppm
 - **Matplotlib**: eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff, webp
-- **scikit-image**: jpeg, jpg, pdf, pgf, png, raw, rgba, svg, svgz, tif, tiff, webp, bmp, gif, ppm, pgm
-- **imageio**: jpeg, jpg, pdf, pgf, png, raw, rgba, svg, svgz, tif, tiff, webp, bmp, gif, ppm, pgm
+- **scikit-image**: jpeg, jpg, png, tif, tiff, webp, bmp, gif, ppm, pgm
+- **imageio**: jpeg, jpg, png, tif, tiff, webp, bmp, gif, ppm, pgm
+
+## Repository Structure
+
+- [main.py](main.py): sample sine-wave figure and calls to all five methods at 300 DPI.
+- [export_graphics.py](export_graphics.py): exports and DPI inspection.
+- `saved_images/`: generated output directory.
 
 ## Acknowledgments
 
@@ -68,7 +84,7 @@ Each subdirectory will contain the sample image saved in various formats support
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
+See the existing [GNU General Public License, version 3](LICENSE).
 
 ## Contact
 
