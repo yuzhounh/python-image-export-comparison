@@ -1,8 +1,15 @@
 # Python Image Export Comparison
 
-Compare image-export code paths, output formats, and resolution handling for a sample Matplotlib figure.
+> Compare Python image export paths, file formats, and resolution metadata.
 
-[![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-D4AF37?style=flat-square)](LICENSE)
+<p>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-f59e0b?style=flat" alt="License: GPL-3.0"></a>
+  <img src="https://img.shields.io/badge/Python-3-3776ab?style=flat&amp;logo=python&amp;logoColor=white" alt="Python: 3">
+</p>
+
+<p>
+  <a href="#getting-started">Get started</a> · <a href="LICENSE">License</a>
+</p>
 
 This project compares different methods and libraries for exporting images in various formats and resolutions in Python.
 
